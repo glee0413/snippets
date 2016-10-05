@@ -3,6 +3,12 @@
 #include <linux/timex.h>
 #include <linux/rtc.h>
 
+#define myprintk(format, args...) \
+    do{\
+        print_time();\
+        printk("[%s %d] " format ,__FILE__,__LINE__,##args);\
+    }while(0)
+
 void
 print_time(void){
 	struct timex  txc; 
